@@ -1,0 +1,26 @@
+.search input {
+    border-radius: 20px;
+}
+
+.bg-teal {
+    background-color: teal;
+    color: white;
+}
+
+.btn-teal {
+    background-color: teal;
+    color: white;
+}
+
+.text-teal {
+    color: teal;
+}
+
+.bg-olive {
+    background: olive;
+    color: white;
+}
+
+.text-olive {
+    color: olive;
+}

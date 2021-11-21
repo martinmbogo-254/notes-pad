@@ -1,0 +1,75 @@
+{% extends 'notes/base.html' %} {% load crispy_forms_tags %} {% load static %} {% block content%}
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+
+    <div class=" col-md-5  text-center m-4">
+
+
+        <div class=" container search">
+            <form class="form-inline my-2 p-2 m-2" method="GET">
+
+                <input type="text" name="q" placeholder="search note ..." class="p-4 form-control rounded shadow ">
+                <button type="submit" class="btn btn-outline-success my-2 my-lg-0 p-2 m-2"> <i class="bi bi-search">search</i></button>
+            </form>
+        </div>
+        <a href="{% url 'new_note'%}" class="nav-link btn btn-info"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="m-20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg> New Note</a>
+        <div class="container">
+            <div>
+                <p>
+                    {% if notes_count == 1%} {{notes_count}} Note {% else%}{{notes_count}} Notes {% endif %}
+                </p>
+            </div>
+            {% for note in notes %}
+
+            <div class="card m-3 container text-justify mr-5 shadow-sm  ">
+                <a href="{% url 'detail' note.id%}" class="nav-link ">
+                    <h6 class="m-2 p-1 text-teal">{{note.title|upper}}</h6>
+                </a>
+                <p class="m-1 p-1">{{note.description|safe|slice:":30"}} <a href="{% url 'detail' note.id%}">more..</a></p>
+
+                <div class="">
+                    <span class="text-muted"><p class="m-2 p-1">{{note.date|timesince}} ago</p>
+          </span>
+                </div>
+            </div>
+
+            {% empty%}
+            <div class="container alert  alert-warning m-3">
+                <p>Sorry!!! .. No note exists.</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div>
+
+            {% if notes.has_other_pages %}
+            <ul class="pagination">
+                {% if notes.has_previous %}
+                <li><a class="btn btn-info m-1 " href="?page={{ notes.previous_page_number }}">&laquo;</a></li>
+                {% else %}
+                <li class=" disabled btn btn-outline-info m-1"><span>&laquo;</span></li>
+                {% endif %} {% for i in notes.paginator.page_range %} {% if notes.number == i %}
+                <li class=" disabled btn btn-outline-info m-1" class="active"><span>{{ i }} <span class="sr-only">(current)</span></span>
+                </li>
+                {% else %}
+                <li><a href="?page={{ i }}" class="btn btn-info m-1">{{ i }}</a></li>
+                {% endif %} {% endfor %} {% if notes.has_next %}
+                <li><a class="btn btn-info m-1" href="?page={{ notes.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                <li class=" disabled btn btn-outline-info m-1"><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
+            {% endif%}
+        </div>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+
+</div>
+
+{% endblock content%}
