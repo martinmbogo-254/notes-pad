@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .filters import NotesFilter
+# from .filters import NotesFilter
 from .models import *
 from django.views.generic import DetailView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
