@@ -6,7 +6,7 @@
 
     <div class=" col-md-6 container text-center m-4">
         <div class="text-justify">
-            <a href="{% url 'home'%}" class="text-teal nav-link">Back</a>
+            <a href="{% url 'home'%}" class="text-teal nav-link"><i class="bi bi-arrow-left"></i> Back</a>
 
         </div>
         <h4>Create/Update Note</h4>
@@ -14,10 +14,10 @@
             <form action="" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div>
-                    {{form.title|as_crispy_field}} {{form.description|as_crispy_field}}
+                    {{form.title|as_crispy_field}} {{form.note|as_crispy_field}}
 
                 </div>
-                <button type="submit" class="btn text-center btn-info">save</button>
+                <button type="submit" class="btn text-center btn-info"><i class="bi bi-save"></i> save</button>
             </form>
         </div>
     </div>

@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-# from .filters import NotesFilter
+from .filters import NotesFilter
 from .models import *
 from django.views.generic import DetailView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
@@ -63,10 +63,10 @@ class NoteUpdateView(UpdateView):
     model = Note
     # success_url = 'detail'
     template_name = 'notes/new_note.html'
-    fields = ['title','description']
+    fields = ['title','note']
 
 class NoteDeleteView(DeleteView):
     model = Note
     success_url = '/'
     template_name = 'notes/note_delete_confirm.html'
-    fields = ['title','description']
+    fields = ['title','note']

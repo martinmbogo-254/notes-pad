@@ -6,8 +6,8 @@ from django.urls import reverse
 # Create your models here.
 
 class Note(models.Model):
-    title  = models.CharField(max_length=100, null=False, blank=False)
-    description = models.TextField(blank=True,null = False)
+    title  = models.CharField(max_length=100, null=False)
+    note = models.TextField(blank=True,null = False)
     date = models.DateTimeField( auto_now_add=True,null=True)
 
     def __str__(self):

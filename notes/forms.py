@@ -8,4 +8,4 @@ class NoteCreationForm(forms.ModelForm):
         self.fields['title'].required = True
     class Meta:
         model = Note
-        fields = ['title','description']
+        fields = ['title','note']
