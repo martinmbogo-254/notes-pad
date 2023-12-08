@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-h!t5yls_aik$=agqlpu^f5yvg2vt$ih+^5t7#=9l31#(-ezd1!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1','.vercel.app']
 
 
 # Application definition 
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'notepad.wsgi.application'
+WSGI_APPLICATION = 'notepad.wsgi.app'
 
 
 # Database
