@@ -19,7 +19,7 @@ def home(request):
     # notes = myFilter.qs
     page = request.GET.get('page', 1)
 
-    paginator = Paginator(notes, 2)
+    paginator = Paginator(notes, 5)
     try:
         notes = paginator.page(page)
     except PageNotAnInteger:
