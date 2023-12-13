@@ -42,6 +42,7 @@ pkgconfig==1.5.5
 platformdirs==2.5.1
 protobuf==4.21.12
 psycopg2==2.9.7
+psycopg2-binary==2.9.9
 python-slugify==8.0.1
 pytz==2023.3
 PyYAML==6.0.1
