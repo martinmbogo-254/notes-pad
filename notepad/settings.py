@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
-
+# import django_heroku
+# 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'notes',
     'django_filters',
     'crispy_forms',
-    'ckeditor'
+    # 'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'notepad.wsgi.application'
+WSGI_APPLICATION = 'notepad.wsgi.app'
 
 
 # Database
@@ -81,13 +81,14 @@ WSGI_APPLICATION = 'notepad.wsgi.application'
 
 DATABASES = {
      'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ["PGDATABASE"],
-        'USER': os.environ["PGUSER"],
-        'PASSWORD': os.environ["PGPASSWORD"],
-        'HOST': os.environ["PGHOST"],
-        'PORT': os.environ["PGPORT"],
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'railway',
+        'USER':'postgres',
+        'PASSWORD':'afB*f*a52A*bfcbACa1cGa2A3CEEfDE*',
+        'HOST':'monorail.proxy.rlwy.net',
+        'PORT':'49271'
+        
+        }
 }
 
 
@@ -132,10 +133,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
+STATIC_URL = 'static/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, "static"),
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build","static")
 
-django_heroku.settings(locals())
+
+# django_heroku.settings(locals())
